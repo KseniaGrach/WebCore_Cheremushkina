@@ -1,7 +1,28 @@
 @font-face {
     font-family: "TT Lakes";
-    src: url("../fonts/TTLakes-Medium.woff") format("woff2"),
-    url("../fonts/TTLakes-Light.woff") format("woff");
+    src: url("../fonts/TTLakes-Medium.woff2") format("woff2"),
+    url("../fonts/TTLakes-Medium.woff") format("woff");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TT Lakes";
+    src: url("../fonts/TTLakes-DemiBold.woff2") format("woff2"),
+    url("../fonts/TTLakes-DemiBold.woff") format("woff");
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+} 
+
+@font-face {
+    font-family: "TT Lakes";
+    src: url("../fonts/TTLakes-Bold.woff2") format("woff2"),
+    url("../fonts/TTLakes-Bold.woff") format("woff");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
 }
 
 * {
@@ -54,7 +75,7 @@ body {
     background: none;
 }
 
-.nav-items div > div {
+.nav-items div > button {
     padding: 0 8px;
 }
 
@@ -62,11 +83,11 @@ body {
     display: flex;
 }
 
-.items-settings div:first-child {
+.items-settings button:first-child {
     padding-left: 20px;
 }
 
-.items-settings div:last-child {
+.items-settings button:last-child {
     padding-right: 16px;
 }
 
@@ -76,7 +97,7 @@ body {
     left: 0;
     content: " ";
     height: 32px;
-    width: 3px;
+    width: 2px;
     background: #EAEAEA;
     border-radius: 1px;
 }
@@ -149,22 +170,17 @@ body {
     padding: 8px 10px;
 }
 
-.post-text {
+.post-text p{
     /* font-size: 14px; */
     font-weight: 400;
     letter-spacing: 0.2px;
     line-height: 18px;
     padding: 0 16px;
-}
-
-.post-text article {
+    white-space:pre-wrap;
+    margin: 0;
     height: 90px;
     width: 100%;
     overflow: hidden;
-}
-
-.post-more {
-    padding-top: 16px;
 }
 
 .post__btn--more{
@@ -174,14 +190,21 @@ body {
 }
 
 .post__btn--more span {
-    padding-left: 16px;
-    font-size: 16px;
+    padding-left: 25px;
+    font-size: 17px;
+    font-weight: 500;
 }
 
 .post__btn--more::before {
     content: url('../image/more.svg');
     position: relative;
-    left: 0;
+    left: 10px;
+}
+
+.post-more{
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .post-img {
@@ -204,10 +227,23 @@ body {
         margin: 0 20px;
         content: " ";
         height: 32px;
-        width: 3px;
+        width: 2px;
         background: #EAEAEA;
         border-radius: 1px;
     } 
+
+    .heading {
+        padding: 24px 0 0 24px;
+        margin: 0;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .main--menu {
+        display: flex;
+        padding: 24px;
+        overflow-x: auto;
+    }
 
     .items__btn--contact--call{
         padding: 0;
@@ -233,11 +269,11 @@ body {
         justify-content: space-around;
     }
 
-    .items-contact div:first-child {
+    .items-contact button:first-child {
         padding-left: 0;
     }
     
-    .items-contact div:last-child {
+    .items-contact button:last-child {
         padding-right: 20px;
     }
 
@@ -246,13 +282,16 @@ body {
         justify-content: space-between;
     }
     
+    .post-more{
+        padding-top: 15px;
+    }
+
     .post-more img{
         padding-left: 9px;
     }
     
     .post-more span {
-        font-weight: 500;
-        font-size: 16px;
+        
         padding-left: 16px;
         padding-top: 16px;
     }
@@ -272,12 +311,31 @@ body {
     .post-img img{
         border-radius: 6px;
     }
+
+    .post-text p{
+        height: 165px;
+        line-height: 20px;
+        padding: 5px 16px 0 0;
+    }
 }
 
 
 @media (min-width: 1120.1px) {
     .navigation {
         display: none;
+    }
+    
+    .heading {
+        padding: 24px 0 0 32px;
+        margin: 0;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .main--menu {
+        display: flex;
+        padding: 24px 32px;
+        overflow-x: auto;
     }
 
     .settings {
@@ -312,7 +370,7 @@ body {
     .main-post {
         display: flex;
         justify-content: space-between;
-        padding: 0 30px 50px 8px;
+        padding: 0 30px 50px 13px;
     }
     
     .post-text {
@@ -330,8 +388,15 @@ body {
         border-radius: 6px;
     }
 
-    .post-text article{
-        height: 160px;
+     .post-text p{
+        height: 170px;
         line-height: 20px;
+        padding: 10px 16px 0;
+    } 
+
+    .post__btn--more{
+        padding: 0 0 0 12px;
+        border: none;
+        background: none;
     }
 }
