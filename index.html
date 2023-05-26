@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>WebCore Cheremushkina</title>
+    
+    <!-- Блок 1.5 (начало)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Блок 1.5 (конец)-->
+
     <link href="css/style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -44,13 +50,13 @@
             <div class="settings">
                 <div class="settings-img">
                     <button class="heading__btn--settings--repair">
-                        <span>Оставить заявку</span> 
+                        Оставить заявку
                         <img src="image/repair.svg" alt="repair">
                     </button>
                 </div>
                 <div class="settings-img">
                     <button class="heading__btn--settings--status">
-                        <span>Статус ремонта</span> 
+                        Статус ремонта
                         <img src="image/checkstatus.svg" alt="status">
                     </button>
                 </div>
@@ -77,5 +83,132 @@
             </div>
         </div>
     </div>
+
+
+<!-- Блок 1.5 -->
+
+<div class="swiper--container">
+    <div class="swiper">
+        <h2 class="swiper--header">РЕМОНТ ТЕХНИКИ РАЗЛИЧНЫХ БРЕНДОВ</h2>
+        <!-- Дополнительная необходимая обертка -->
+        <div class="swiper-wrapper">
+          <!-- Слайды -->
+            <div class="swiper-slide">
+                <div class="slide--card">     
+                    <img src="image/Lenovo1_5.svg" alt="post">
+                    <button class="swiper-slide--btn">
+                        <img src="image/go1_5.svg" alt="go">
+                    </button>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slide--card">     
+                    <img src="image/Acer1_5.svg" alt="post">
+                    <button class="swiper-slide--btn">
+                        <img src="image/go1_5.svg" alt="go">
+                    </button>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slide--card">     
+                    <img src="image/Apple1_5.svg" alt="post">
+                    <button class="swiper-slide--btn">
+                        <img src="image/go1_5.svg" alt="go">
+                    </button>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slide--card">     
+                    <img src="image/Samsung1_5.svg" alt="post">
+                    <button class="swiper-slide--btn">
+                        <img src="image/go1_5.svg" alt="go">
+                    </button>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slide--card">     
+                    <img src="image/Bosch1_5.svg" alt="post">
+                    <button class="swiper-slide--btn">
+                        <img src="image/go1_5.svg" alt="go">
+                    </button>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slide--card">     
+                    <img src="image/hp1_5.svg" alt="post">
+                    <button class="swiper-slide--btn">
+                        <img src="image/go1_5.svg" alt="go">
+                    </button>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slide--card">     
+                    <img src="image/Lenovo1_5.svg" alt="post">
+                    <button class="swiper-slide--btn">
+                        <img src="image/go1_5.svg" alt="go">
+                    </button>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slide--card">     
+                    <img src="image/Acer1_5.svg" alt="post">
+                    <button class="swiper-slide--btn">
+                        <img src="image/go1_5.svg" alt="go">
+                    </button>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slide--card">     
+                    <img src="image/Apple1_5.svg" alt="post">
+                    <button class="swiper-slide--btn">
+                        <img src="image/go1_5.svg" alt="go">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Нумерация страниц -->
+        <div class="swiper-pagination"></div>
+    
+        <!-- Полоса прокрутки -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+</div>
+
+
+ <script>
+    var init = false;
+
+    function swiperCard() {
+        if (window.innerWidth <= 768) {
+            if (!init) {
+                init = true;
+                swiper = new Swiper('.swiper', {
+                    direction: 'horizontal',
+                    slidesPerView: "auto",
+                    loop: true,
+                    
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+
+                    scrollbar: {
+                        el: '.swiper-scrollbar',
+                    },
+                });
+            }
+        } else if (init) {
+            swiper.destroy();
+            init = false;
+        }
+    }
+
+    swiperCard();
+    window.addEventListener("resize", swiperCard);
+ </script>
 </body>
 </html>
