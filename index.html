@@ -86,13 +86,12 @@
 
 
 <!-- Блок 1.5 -->
-
 <div class="swiper--container">
     <div class="swiper">
         <h2 class="swiper--header">РЕМОНТ ТЕХНИКИ РАЗЛИЧНЫХ БРЕНДОВ</h2>
         <!-- Дополнительная необходимая обертка -->
         <div class="swiper-wrapper">
-          <!-- Слайды -->
+            <!-- Слайды -->
             <div class="swiper-slide">
                 <div class="slide--card">     
                     <img src="image/Lenovo1_5.svg" alt="post">
@@ -168,47 +167,63 @@
         </div>
         <!-- Нумерация страниц -->
         <div class="swiper-pagination"></div>
-    
+
         <!-- Полоса прокрутки -->
         <div class="swiper-scrollbar"></div>
     </div>
 </div>
 
+<div class="brand--more">
+    <button class="brand__btn--show--hide"><span>Показать все</span></button>
+</div>
 
  <script>
-    var init = false;
+    document.addEventListener('DOMContentLoaded', function(){
 
-    function swiperCard() {
-        if (window.innerWidth <= 768) {
-            if (!init) {
-                init = true;
-                swiper = new Swiper('.swiper', {
-                    direction: 'horizontal',
-                    slidesPerView: "auto",
-                    loop: true,
-                    
-                    pagination: {
-                        el: '.swiper-pagination',
-                    },
+        var init = false;
 
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
+        function swiperCard() {
+            if (window.innerWidth <= 768) {
+                if (!init) {
+                    init = true;
+                    swiper = new Swiper('.swiper', {
+                        direction: 'horizontal',
+                        slidesPerView: "auto",
+                        loop: true,
+                        
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
 
-                    scrollbar: {
-                        el: '.swiper-scrollbar',
-                    },
-                });
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+
+                        scrollbar: {
+                            el: '.swiper-scrollbar',
+                        },
+                    });
+                }
+            } else if (init) {
+                swiper.destroy();
+                init = false;
             }
-        } else if (init) {
-            swiper.destroy();
-            init = false;
         }
-    }
 
-    swiperCard();
-    window.addEventListener("resize", swiperCard);
+        swiperCard();
+        window.addEventListener("resize", swiperCard);
+
+        var swiperContainer = document.getElementsByClassName('swiper--container')[0];
+        const swiperContainerHeight = swiperContainer.offsetHeight;
+
+        document.querySelector('.brand__btn--show--hide').addEventListener('click', function(e){
+            e.target.textContent == "Показать все" ? e.target.textContent = "Скрыть" : e.target.textContent = "Показать все";
+            e.currentTarget.classList.toggle('hide');
+            swiperContainer.offsetHeight == swiperContainerHeight ? swiperContainer.style.height = "auto" : swiperContainer.style.height = `${swiperContainerHeight}px`;
+        })
+    });
+
  </script>
 </body>
 </html>
